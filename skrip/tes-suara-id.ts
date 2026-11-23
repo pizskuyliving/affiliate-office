@@ -26,15 +26,33 @@ const NASKAH_BAWAAN =
 
 const KODE_BAHASA: Record<string, string> = { a: 'a', b: 'b', e: 'e', f: 'f', h: 'h', i: 'i', j: 'j', p: 'p', z: 'z' }
 
+/** Daftar suara Kokoro. null = daftar tidak terbaca (tetap dicoba semua). Lempar error kalau Kokoro tidak terjangkau. */
 async function daftarSuara(): Promise<Set<string> | null> {
+  let r: Response
   try {
-    const r = await fetch(`${URL_KOKORO}/v1/audio/voices`, { signal: AbortSignal.timeout(15_000) })
-    if (!r.ok) return null
-    const j = (await r.json()) as { voices?: unknown }
-    return Array.isArray(j.voices) ? new Set(j.voices.map(String)) : null
-  } catch {
+    r = await fetch(`${URL_KOKORO}/v1/audio/voices`, { signal: AbortSignal.timeout(15_000) })
+  } catch (e) {
+    const sebab = e instanceof Error ? ((e.cause as Error | undefined)?.message ?? e.message) : String(e)
+    throw new Error(
+      `Kokoro tidak terjangkau di ${URL_KOKORO} (${sebab}).\n` +
+        '- Pastikan jendela PowerShell dengan perintah "ssh -N -L 8880:127.0.0.1:8880 ..." masih terbuka.\n' +
+        '- Kalau masih terbuka, cek container di VPS: sudo docker ps (harus ada "kokoro").',
+    )
+  }
+  const teks = await r.text()
+  if (!r.ok) {
+    console.warn(`Daftar suara tidak bisa diambil (HTTP ${r.status}): ${teks.slice(0, 200)}. Semua suara tetap dicoba.`)
     return null
   }
+  try {
+    const j = JSON.parse(teks) as { voices?: unknown } | unknown[]
+    const daftar = Array.isArray(j) ? j : j.voices
+    if (Array.isArray(daftar)) return new Set(daftar.map((v) => (typeof v === 'string' ? v : String((v as { name?: unknown }).name ?? v))))
+  } catch {
+    // format tidak dikenal, lanjut di bawah
+  }
+  console.warn(`Format daftar suara tidak dikenal: ${teks.slice(0, 200)}. Semua suara tetap dicoba.`)
+  return null
 }
 
 async function bacakan(suara: string, teks: string): Promise<Buffer> {
@@ -62,13 +80,15 @@ async function main() {
   const naskah = process.argv[2] || NASKAH_BAWAAN
   const diminta = (process.env.SUARA || SUARA_BAWAAN.join(',')).split(',').map((s) => s.trim()).filter(Boolean)
 
-  const ada = await daftarSuara()
-  if (!ada) {
-    console.error(`Kokoro tidak menjawab di ${URL_KOKORO}. Cek: sudo docker ps; sudo docker logs kokoro`)
+  let ada: Set<string> | null
+  try {
+    ada = await daftarSuara()
+  } catch (e) {
+    console.error(e instanceof Error ? e.message : e)
     process.exit(1)
   }
-  const suara = diminta.filter((s) => ada.has(s))
-  const hilang = diminta.filter((s) => !ada.has(s))
+  const suara = ada ? diminta.filter((s) => ada.has(s)) : diminta
+  const hilang = ada ? diminta.filter((s) => !ada.has(s)) : []
   if (hilang.length) console.warn(`Dilewati, tidak ada di Kokoro: ${hilang.join(', ')}`)
 
   mkdirSync(KELUAR, { recursive: true })
