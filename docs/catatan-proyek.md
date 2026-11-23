@@ -1,5 +1,14 @@
 # Catatan proyek
 
+## 23 Nov 2026 (keputusan akhir): kembali ke Google Flow
+- Dreamina dibatalkan sebelum berlangganan. Alasan: Flow ±4,5x lebih murah (Google AI Pro ±Rp309 rb vs Dreamina
+  Advanced Rp1,399 jt), kapasitas lebih pasti (±2.500 kredit ≈ ±80 video/bulan), dan hasil uji Kahf sudah layak posting.
+  Kelemahan klip 8 detik ditutup oleh perakitan otomatis di Remotion.
+- **Susunan video 20–25 detik:** klip 1 (before → pemakaian, 8 dtk) + klip 2 (hasil + pegang produk, 5–8 dtk) dari Flow,
+  lalu foto produk asli + harga + CTA dirakit office tanpa kredit. Frame terakhir klip 1 = frame awal klip 2.
+- **Budget:** Google AI Pro ±Rp309 rb + ElevenLabs Starter ±Rp100 rb (sisa dari batas Rp2 jt jadi cadangan).
+- Bagian "ganti ke Dreamina" di bawah tetap dicatat sebagai riwayat; yang berlaku adalah bagian ini.
+
 ## 23 Nov 2026 (malam): ganti ke Dreamina + ElevenLabs
 - **Video: Dreamina Advanced 15.4K** (Rp1.399.000/bulan; bulan pertama Rp489.650 dengan kartu/PayPal), 15.370 kredit
   + unlimited Seedance 2.0 Fast/Mini 7 hari (cek apakah berulang tiap bulan). Google Flow tidak dipakai lagi.
