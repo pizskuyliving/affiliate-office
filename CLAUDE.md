@@ -5,15 +5,16 @@ Pemilik: Pizskuy. Kode, komentar, dan pesan commit memakai Bahasa Indonesia.
 Kerangka meniru `pizskuyliving/ai-virtual-office` (orchestrator antrean SQLite, `tanyaClaude`, dashboard kantor, satpam, skrip deploy).
 
 ## Pembagian kerja
-- Claude (`claude -p`, login Pro): analisis produk, naskah, prompt Google Flow, caption, QC klip (melihat grid frame), arahan edit.
-- Pemilik di Google Flow: membuat gambar dan klip dari prompt. Tahap ini **manual** (status tunggu di dashboard).
-  Jangan mengotomatiskan browser atau memakai API tidak resmi untuk Flow.
-- Kokoro (Docker di VPS, `127.0.0.1:8880`): voiceover. Kokoro belum punya suara bahasa Indonesia, jadi teks diubah ejaannya
-  (`src/suara/ejaan.ts`) dan dibacakan suara Spanyol/Italia. Pilihan suara menunggu hasil `skrip/tes-suara-id.ts`.
+- Claude (`claude -p`, login Pro): analisis produk, naskah, prompt Seedance/Dreamina, caption, QC klip (melihat grid frame), arahan edit.
+- Pemilik di Dreamina (paket Advanced): membuat klip dari prompt Seedance (referensi @Image, timeline per detik).
+  Tahap ini **manual** (status tunggu di dashboard). Jangan mengotomatiskan browser atau memakai API tidak resmi.
+  Google Flow tidak dipakai lagi (keputusan 23 Nov 2026).
+- ElevenLabs (paket Starter, suara bahasa Indonesia dari Voice Library): voiceover. Kokoro tidak dipakai untuk affiliate
+  (uji dengar 23 Nov 2026: semua suara terdengar aneh untuk bahasa Indonesia).
 - Remotion: merakit video 1080x1920.
 
 ## Rencana tahap
-produk → analis-produk → naskah → prompt-flow → menunggu-flow (manual) → qc-klip → suara → editor → varian → bos (manual) → posting
+produk → analis-produk → naskah → prompt-klip → menunggu-klip (manual) → qc-klip → suara → editor → varian → bos (manual) → posting
 
 ## Aturan pemilik (wajib)
 - **Klaim produk:** hanya dari label atau deskripsi resmi produk. Visual hasil harus realistis, tidak melebih-lebihkan.
@@ -27,5 +28,6 @@ produk → analis-produk → naskah → prompt-flow → menunggu-flow (manual) �
 - Cek tipe sebelum commit: `npx tsc --noEmit -p .`
 
 ## Status
-- 23 Nov 2026: fondasi + uji dengar suara Kokoro untuk bahasa Indonesia. Pipeline belum dibangun.
+- 23 Nov 2026: fondasi + uji dengar Kokoro (gagal untuk bahasa Indonesia). Keputusan: klip di Dreamina, suara ElevenLabs.
+  Pipeline belum dibangun.
 - Riwayat keputusan: `docs/catatan-proyek.md`.
