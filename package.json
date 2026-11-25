@@ -6,8 +6,9 @@
     "node": ">=22.13"
   },
   "scripts": {
-    "tes-suara": "tsx skrip/tes-suara-id.ts",
-    "cek": "tsc --noEmit"
+    "start": "node --experimental-strip-types src/server.ts",
+    "dev": "CLAUDE_MODE=contoh node --experimental-strip-types src/server.ts",
+    "cek": "tsc --noEmit -p ."
   },
   "devDependencies": {
     "@types/node": "22.18.0",

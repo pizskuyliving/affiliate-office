@@ -3,3 +3,5 @@ node_modules/
 rahasia/
 data/
 out/
+__pycache__/
+.env

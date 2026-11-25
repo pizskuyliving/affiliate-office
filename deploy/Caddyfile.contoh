@@ -1,0 +1,12 @@
+# Tambahkan ke /etc/caddy/Caddyfile, lalu: sudo systemctl reload caddy
+# Hash password dibuat pemilik sendiri di server:  caddy hash-password
+# (jangan tulis password atau hash di repo ini)
+affiliate-NAMA.duckdns.org {
+	basic_auth {
+		pizskuy HASH_DARI_CADDY_HASH_PASSWORD
+	}
+	request_body {
+		max_size 300MB
+	}
+	reverse_proxy 127.0.0.1:3100
+}

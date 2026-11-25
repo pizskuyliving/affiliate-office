@@ -1,0 +1,18 @@
+[Unit]
+Description=Affiliate Office (dashboard + orchestrator)
+After=network-online.target
+
+[Service]
+Type=simple
+# Ganti USER dengan user yang sudah login Claude Code (sama dengan office lama). pasang.sh mengisinya otomatis.
+User=USER
+WorkingDirectory=/opt/affiliate-office
+EnvironmentFile=/opt/affiliate-office/.env
+ExecStart=/usr/bin/node --experimental-strip-types --disable-warning=ExperimentalWarning src/server.ts
+Restart=on-failure
+RestartSec=5
+# Render video berat: beri prioritas lebih rendah dari office lama
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

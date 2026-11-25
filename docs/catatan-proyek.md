@@ -1,5 +1,16 @@
 # Catatan proyek
 
+## 25 Nov 2026: Fase 1 dibangun (fokus outfit)
+- Fokus konten: outfit cowok faceless try-on. Tiga template: print_depan, print_belakang, polos (`src/template.ts`).
+- Tanpa dependensi npm saat jalan (node:http, node:sqlite, strip-types) supaya ringan di VPS dan bisa diuji penuh.
+- Editor memakai renderer Python (Pillow + ffmpeg) yang sudah dipakai untuk video SHIFT yang diposting, bukan Remotion.
+  Remotion bisa dipertimbangkan lagi nanti; renderer sekarang ±20 dtk per varian di 2 vCPU (uji lokal).
+- Prompt Flow tidak ditulis bebas oleh Claude: Claude mengisi deskripsi panel dan subjek pakaian, aturan tetap disusun kode.
+- Satu klip → 3 varian (beda hook) otomatis. Musik di video hanya sementara; saat posting diganti sound TikTok.
+- Kokoro dan skrip uji suara dihapus dari repo (tidak dipakai; video outfit cukup musik tanpa voiceover, ElevenLabs ditunda).
+- Pelajaran posting pertama: teks di sepertiga bawah tertutup tombol "Lihat Produk"; zoom 10–18% membuat print menempel bar pencarian.
+  Sekarang teks di y 300 (atas) atau 1020 (bawah) dari 1920, zoom ≤ 6%.
+
 ## 25 Nov 2026: alur storyboard terbukti, model video Omni 1.2 Flash
 - **Alur:** foto produk → storyboard 6 panel dibuat Claude (HTML + foto produk asli, dirender Chrome jadi PNG 1080x1920)
   → di Flow lampirkan storyboard + foto produk → prompt per panel → 1 klip 10 detik.

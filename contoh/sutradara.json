@@ -1,0 +1,21 @@
+{
+  "template": "print_depan",
+  "panel": [
+    {"deskripsi": "Pria berdiri di tengah karpet bundar menghadap kamera, tangan rileks, print SHIFT merah dan mobil biru-putih di dada terlihat jelas.", "kicker": "OUTFIT CHECK", "judul": ["Kaos boxy +", "jeans wide leg."]},
+    {"deskripsi": "Kedua tangan merapikan kerah dan bahu kaos abu-abu gelap, print SHIFT di dada tetap utuh dan tajam.", "kicker": "DETAIL", "judul": ["Print grafis", "besar di dada."]},
+    {"deskripsi": "Berputar pelan 90 derajat ke kanan, memperlihatkan siluet kaos boxy dan jeans biru muda yang lebar.", "kicker": "SIDE VIEW", "judul": ["Potongan boxy,", "jatuhnya santai."]},
+    {"deskripsi": "Kembali menghadap kamera lalu melangkah dua langkah pelan ke depan, jatuh kain jeans light wash terlihat.", "kicker": "WIDE LEG", "judul": ["Light wash,", "lebar lurus."]},
+    {"deskripsi": "Close-up print SHIFT dan mobil di dada, lalu tekstur jeans light wash di pinggang.", "kicker": "BAHAN KAOS", "judul": ["Cotton combed 16s,", "warna dark grey."]},
+    {"deskripsi": "Berdiri menghadap depan, satu tangan di saku jeans, pose santai.", "kicker": "SANTAI", "judul": ["Siap jalan."]}
+  ],
+  "hook": [["Outfit nongkrong", "yang nggak perlu", "mikir lama."], ["Kaos boxy +", "jeans lebar =", "aman terus."], ["Bingung mau", "pakai apa hari ini?"]],
+  "kartu": {"nama": "Graphic Boxy Tee", "sub": "+ Jeans Wide Leg", "chips": ["Cotton combed 16s", "Dark grey", "Wide leg · light wash"]},
+  "cta": ["Cek ukuran & harganya", "di keranjang kuning."],
+  "caption": "Outfit nongkrong yang nggak perlu mikir lama 🖤\nGraphic boxy tee SHIFT + jeans wide leg light wash.\nCek ukuran & harganya di keranjang kuning 👇",
+  "hashtag": ["outfitcowok", "ootdcowok", "streetwear", "kaosoversize", "jeanswideleg", "fitcheck"],
+  "subjek": {
+    "atasan": "kaos boxy lengan pendek abu-abu gelap, print di DADA: tulisan SHIFT merah distressed dan gambar mobil klasik biru-putih yang blur, tulisan kecil putih di bawah mobil; bagian punggung polos",
+    "bawahan": "celana jeans biru muda light wash, potongan lebar lurus sampai mata kaki",
+    "sepatu": "sneakers kanvas hitam polos bersol putih tanpa logo merek"
+  }
+}

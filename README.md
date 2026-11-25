@@ -1,26 +1,34 @@
 # Affiliate Office
 
-Kantor AI untuk membuat video affiliate TikTok/Shopee dari foto produk: naskah dan prompt oleh Claude,
-klip dibuat di Google Flow, voiceover Kokoro, dirakit dengan Remotion.
+Kantor AI untuk video affiliate fashion TikTok: upload foto produk → storyboard + prompt Google Flow → upload klip Flow → 3 varian video siap posting.
 
-## Uji suara (langkah pertama)
+## Coba di laptop (tanpa Claude)
 
-Kokoro harus bisa dijangkau di `http://127.0.0.1:8880` (container `kokoro` di VPS).
-
-```bash
-npm install
-npm run tes-suara
-# atau naskah sendiri:
-npx tsx skrip/tes-suara-id.ts "Rambut lepek? Tabur dikit, langsung ngangkat."
-```
-
-Hasil: `out/tes-suara/*.mp3` dan `out/tes-suara/dengar.html`.
-
-Menjalankan dari laptop dengan Kokoro di VPS:
+Butuh Node 22.13+, Python 3 dengan Pillow dan numpy, ffmpeg, dan Chrome.
 
 ```bash
-ssh -N -L 8880:127.0.0.1:8880 <user>@<vps>   # biarkan terbuka di terminal lain
-npm run tes-suara
+npm run dev          # mode contoh: jawaban Claude dari contoh/*.json
+# buka http://127.0.0.1:3100
 ```
 
-Lihat `CLAUDE.md` untuk aturan dan rencana tahap, `docs/catatan-proyek.md` untuk riwayat keputusan.
+## Pasang di VPS
+
+```bash
+sudo git clone https://github.com/pizskuyliving/affiliate-office /opt/affiliate-office
+sudo bash /opt/affiliate-office/deploy/pasang.sh <user-yang-sudah-login-claude>
+sudo nano /opt/affiliate-office/.env      # cek CLAUDE_BIN dan CHROME_BIN
+sudo systemctl restart affiliate-office
+```
+
+Lalu tambahkan blok di `deploy/Caddyfile.contoh` ke Caddy (buat hash password sendiri dengan `caddy hash-password`).
+Update berikutnya: `sudo affiliate-update`.
+
+## Cara pakai
+
+1. **Produk baru**: upload foto/screenshot produk (boleh beberapa), isi nama, harga, info ukuran/bahan.
+2. Tunggu ±1–3 menit: muncul **foto rapi, storyboard, dan prompt** langkah 1 & 2.
+3. Di Google Flow: langkah 1 (gambar, gratis), langkah 2 (video Omni 1.2 Flash, 10 detik, ±30 kredit).
+4. **Upload klip** di halaman proyek. Office mengedit 3 varian hook.
+5. Unduh video, ganti musik dengan sound TikTok, tautkan keranjang kuning, aktifkan label konten AI, posting.
+
+Lihat `CLAUDE.md` untuk susunan kode dan aturan, `docs/catatan-proyek.md` untuk riwayat keputusan.

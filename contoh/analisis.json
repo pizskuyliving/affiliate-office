@@ -1,0 +1,15 @@
+{
+  "foto": [
+    {"indeks": 0, "isi": "atasan", "kotak": {"x0": 0.054, "y0": 0.334, "x1": 0.947, "y1": 0.669}, "pakai": true, "catatan": "screenshot HP, buang status bar dan tombol"},
+    {"indeks": 1, "isi": "bawahan", "kotak": {"x0": 0.23, "y0": 0.27, "x1": 0.84, "y1": 0.678}, "pakai": true, "catatan": "potong di atas sepatu"}
+  ],
+  "produk": {
+    "nama_pendek": "Graphic Boxy Tee SHIFT",
+    "jenis": "set",
+    "atasan": {"deskripsi": "Kaos boxy lengan pendek abu-abu gelap dengan print grafis di dada", "warna": "dark grey", "warna_hex": "#3a3a3c", "potongan": "boxy, longgar",
+      "print_posisi": "depan", "print_deskripsi": "tulisan SHIFT warna merah bergaya distressed, di bawahnya gambar mobil klasik biru-putih yang blur, dan tulisan kecil putih di bawah mobil"},
+    "bawahan": {"deskripsi": "Celana jeans biru muda light wash potongan lebar lurus", "warna": "biru muda", "warna_hex": "#a9c8e4", "potongan": "wide leg, lurus", "print_posisi": "polos", "print_deskripsi": "polos"},
+    "bahan_tertulis": ["Cotton Combed 16s"],
+    "risiko": ["tulisan kecil di bawah mobil bisa berubah", "foto celana memakai kaos hitam dan sepatu bermerek"]
+  }
+}

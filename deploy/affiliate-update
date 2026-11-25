@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Ambil kode terbaru lalu restart layanan: sudo affiliate-update
+set -euo pipefail
+cd /opt/affiliate-office
+sudo -u "$(stat -c %U .)" git pull --ff-only
+systemctl restart affiliate-office
+systemctl --no-pager status affiliate-office | head -5
