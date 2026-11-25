@@ -1,5 +1,15 @@
 # Catatan proyek
 
+## 25 Nov 2026: alur storyboard terbukti, model video Omni 1.2 Flash
+- **Alur:** foto produk → storyboard 6 panel dibuat Claude (HTML + foto produk asli, dirender Chrome jadi PNG 1080x1920)
+  → di Flow lampirkan storyboard + foto produk → prompt per panel → 1 klip 10 detik.
+- **Uji Kahf, Omni 1.2 Flash (30 kredit, 10 dtk, 1080p):** 6/6 panel diikuti berurutan, botol dan logo akurat,
+  tanpa anotasi/teks ikut tergambar. Layak dipakai. Dua tangan pada adegan menuang tetap wajar.
+- **Uji Kahf, Veo 3.1 Lite (10 kredit, maks 8 dtk, 720p):** hanya ±3 adegan, transisi dissolve (logo dobel),
+  tiga tangan, botol terbuka tanpa tutup. Tidak dipakai untuk storyboard; hanya untuk shot tunggal sederhana.
+- **Keputusan:** default Omni 1.2 Flash 10 detik. Target 2 video/hari dengan Google AI Pro; video ke-3 dari susun ulang klip.
+- Teks, CTA, voiceover, dan kartu produk tetap ditambahkan office (prompt melarang teks di video).
+
 ## 23 Nov 2026 (keputusan akhir): kembali ke Google Flow
 - Dreamina dibatalkan sebelum berlangganan. Alasan: Flow ±4,5x lebih murah (Google AI Pro ±Rp309 rb vs Dreamina
   Advanced Rp1,399 jt), kapasitas lebih pasti (±2.500 kredit ≈ ±80 video/bulan), dan hasil uji Kahf sudah layak posting.
